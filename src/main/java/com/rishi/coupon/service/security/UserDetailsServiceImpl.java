@@ -18,11 +18,13 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		System.out.println("inside loadUserByUsername, username: "+username);
 		UserDto userDto = userService.getUserByUserName(username);
+		System.out.println("userDto: "+userDto);
 		if(userDto == null) {
 			throw new UsernameNotFoundException(username+" username not found.");
 		}
-		return new User(userDto.getEmail(), userDto.getPassword(), userDto.getRoleDtos());
+		return new User(userDto.getEmail(), userDto.getPassword(), userDto.getRoles());
 	}
 
 }

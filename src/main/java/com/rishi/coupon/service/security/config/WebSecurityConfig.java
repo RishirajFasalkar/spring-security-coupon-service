@@ -20,6 +20,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		System.out.println("inside configure HttpSecurity..");
 		http.httpBasic();
 		//Imp note: ROLE_ is inserted by spring. In DB we have to maintain ROLE_USER, ROLE_ADMIN etc.
 		http.authorizeRequests().mvcMatchers(HttpMethod.GET, "/couponapi/coupon").hasAnyRole("USER", "ADMIN")
@@ -29,6 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		System.out.println("inside configure AuthenticationManagerBuilder..");
 		auth.userDetailsService(userDetailsServiceImpl);
 	}
 
