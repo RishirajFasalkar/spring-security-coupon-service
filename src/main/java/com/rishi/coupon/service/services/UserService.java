@@ -34,6 +34,12 @@ public class UserService {
 			roleDto.setName(roleEntity.getName());
 			roleDtos.add(roleDto);
 		}
+		//wrote below just for practice purpose, need to start using below more often
+//		userEntity.getRoles().stream().forEach((roleEntity) -> {
+//			RoleDto roleDto = new RoleDto();
+//			roleDto.setName(roleEntity.getName());
+//			roleDtos.add(roleDto);
+//		});
 		userDto.setRoles(roleDtos);
 		return userDto;
 	}
